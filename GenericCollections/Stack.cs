@@ -4,6 +4,11 @@
     {
         private LinkedList<T> _data;
 
+        public int Count
+        {
+            get => _data.Count;
+        } 
+
         public Stack()
         {
             _data = new LinkedList<T>();
@@ -14,14 +19,14 @@
             _data.AddFirst(item);
         }
 
-        public object Pop()
+        public T Pop()
         {
-            object item = _data.First.Value;
+            T item = _data.First.Value;
             _data.RemoveFirst();
             return item;
         }
 
-        public object Peek()
+        public T Peek()
         {
             return _data.First.Value;
         }
