@@ -19,9 +19,9 @@
             _data.AddFirst(item);
         }
 
-        public object Dequeue()
+        public T Dequeue()
         {
-            object res = _data.Last.Value;
+            T res = _data.Last.Value;
             _data.RemoveLast();
             return res;
         }
