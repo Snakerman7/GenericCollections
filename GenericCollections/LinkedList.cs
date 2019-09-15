@@ -83,9 +83,18 @@
         {
             if (First != null)
             {
-                First = First.Next;
-                First.Previous = null;
-                Count--;
+                if (Count > 1)
+                {
+                    First = First.Next;
+                    First.Previous = null;
+                    Count--;
+                }
+                else
+                {
+                    First = null;
+                    Last = null;
+                    Count--;
+                }
             }
         }
 
