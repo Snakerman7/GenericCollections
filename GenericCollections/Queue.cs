@@ -1,4 +1,6 @@
-﻿namespace GenericCollections
+﻿using System;
+
+namespace GenericCollections
 {
     public class Queue<T>
     {
@@ -21,6 +23,10 @@
 
         public T Dequeue()
         {
+            if(_data.Count == 0)
+            {
+                throw new InvalidOperationException("Queue is empty");
+            }
             T res = _data.Last.Value;
             _data.RemoveLast();
             return res;
@@ -38,6 +44,10 @@
 
         public T Peek()
         {
+            if (_data.Count == 0)
+            {
+                throw new InvalidOperationException("Queue is empty");
+            }
             return _data.Last.Value;
         }
 

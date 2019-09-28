@@ -1,4 +1,6 @@
-﻿namespace GenericCollections
+﻿using System;
+
+namespace GenericCollections
 {
     public sealed class LinkedListNode<T>
     {
@@ -96,15 +98,32 @@
                     Count--;
                 }
             }
+            else
+            {
+                throw new InvalidOperationException();
+            }
         }
 
         public void RemoveLast()
         {
             if (Last != null)
             {
-                Last = Last.Previous;
-                Last.Next = null;
-                Count--;
+                if (Count > 1)
+                {
+                    Last = Last.Previous;
+                    Last.Next = null;
+                    Count--;
+                }
+                else
+                {
+                    First = null;
+                    Last = null;
+                    Count--;
+                }
+            }
+            else
+            {
+                throw new InvalidOperationException();
             }
         }
 

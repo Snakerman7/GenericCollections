@@ -1,4 +1,6 @@
-﻿namespace GenericCollections
+﻿using System;
+
+namespace GenericCollections
 {
     public class Stack<T>
     {
@@ -21,6 +23,10 @@
 
         public T Pop()
         {
+            if (_data.Count == 0)
+            {
+                throw new InvalidOperationException("Stack is empty");
+            }
             T item = _data.First.Value;
             _data.RemoveFirst();
             return item;
@@ -28,6 +34,10 @@
 
         public T Peek()
         {
+            if (_data.Count == 0)
+            {
+                throw new InvalidOperationException("Stack is empty");
+            }
             return _data.First.Value;
         }
 

@@ -68,8 +68,7 @@ namespace GenericCollections
 
         public void RemoveAt(int index)
         {
-            if (index < 0 || index > Count)
-                throw new ArgumentOutOfRangeException();
+            CheckIndex(index);
             Count--;
             for (int i = index; i < Count; i++)
             {
@@ -115,18 +114,12 @@ namespace GenericCollections
         {
             get
             {
-                if (index < 0 || index >= Count)
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
+                CheckIndex(index);
                 return _data[index];
             }
             set
             {
-                if (index < 0 || index >= Count)
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
+                CheckIndex(index);
                 _data[index] = value;
             }
         }
@@ -174,9 +167,14 @@ namespace GenericCollections
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            for (int i = 0; i < Count; i++)
+            return GetEnumerator();
+        }
+
+        private void CheckIndex(int index)
+        {
+            if (index < 0 || index >= Count)
             {
-                yield return _data[i];
+                throw new ArgumentOutOfRangeException();
             }
         }
     }

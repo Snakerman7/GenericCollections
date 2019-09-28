@@ -52,6 +52,7 @@
     <Compile Include="ForwardListTest.cs" />
     <Compile Include="ListTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StackTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
