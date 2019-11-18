@@ -16,7 +16,7 @@ namespace GenericCollections
             _data = new LinkedList<T>();
         }
 
-        public void Puch(T item)
+        public void Push(T item)
         {
             _data.AddFirst(item);
         }

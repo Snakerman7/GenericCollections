@@ -51,7 +51,6 @@ namespace GenericCollections
             {
                 return _items[index];
             }
-
             set
             {
                 OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, value, _items[index]));
